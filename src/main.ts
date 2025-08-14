@@ -6,6 +6,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
+
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
@@ -17,9 +18,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  const port = process.env.PORT || 4000;
-  await app.listen(port);
-  // eslint-disable-next-line no-console
-  console.log(`🚀 Server running on http://localhost:${port} (Swagger: /api)`);
+  // Railway uchun portni faqat process.env.PORT dan olamiz
+  const port = process.env.PORT ?? 3000;
+  await app.listen(port, '0.0.0.0'); // <--- MUHIM: '0.0.0.0' qil
+  console.log(`🚀 Server running on port ${port} (Swagger: /api)`);
 }
 bootstrap();
