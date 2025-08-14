@@ -3,11 +3,7 @@ import { Question } from '../questions/question.entity';
 export declare class TestService {
     private readonly repo;
     constructor(repo: Repository<Question>);
-    getRandomQuestions(limit?: number): Promise<{
-        id: number;
-        text: string;
-        options: string[];
-    }[]>;
+    getRandomQuestions(limit?: number): Promise<any>;
     calculateResult(answers: {
         questionId: number;
         selectedIndex: number;
@@ -18,7 +14,7 @@ export declare class TestService {
         results: {
             questionId: number;
             selectedIndex: number;
-            correctIndex: number | null;
+            correctIndex: any;
             isCorrect: boolean;
         }[];
     }>;

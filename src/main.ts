@@ -19,8 +19,8 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   // Railway uchun portni faqat process.env.PORT dan olamiz
-  const port = process.env.PORT ?? 3000;
-  await app.listen(port, '0.0.0.0'); // <--- MUHIM: '0.0.0.0' qil
-  console.log(`🚀 Server running on port ${port} (Swagger: /api)`);
+  // const port = process.env.PORT ?? 3000;
+  await app.listen(process.env.PORT || 3000, '0.0.0.0'); // <--- MUHIM: '0.0.0.0' qil
+  console.log(`🚀 Server running on port (Swagger: /api)`);
 }
 bootstrap();

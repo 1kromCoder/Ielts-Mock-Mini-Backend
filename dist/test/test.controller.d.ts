@@ -2,11 +2,7 @@ import { TestService } from './test.service';
 export declare class TestController {
     private readonly service;
     constructor(service: TestService);
-    getQuestions(limit?: number): Promise<{
-        id: number;
-        text: string;
-        options: string[];
-    }[]>;
+    getQuestions(limit?: number): Promise<any>;
     submit(payload: {
         answers: {
             questionId: number;
@@ -19,7 +15,7 @@ export declare class TestController {
         results: {
             questionId: number;
             selectedIndex: number;
-            correctIndex: number | null;
+            correctIndex: any;
             isCorrect: boolean;
         }[];
     }>;
